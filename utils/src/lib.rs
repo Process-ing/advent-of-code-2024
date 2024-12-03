@@ -1,4 +1,4 @@
-use std::io::{self, BufRead};
+use std::io::{self, BufRead, Read};
 
 pub fn parse_two_lists() -> (Vec<i32>, Vec<i32>) {
     let (mut list1, mut list2) = (vec![], vec![]);
@@ -29,4 +29,13 @@ pub fn parse_int_lists() -> Vec<Vec<i32>> {
     }).collect();
 
     return lists;
+}
+
+pub fn read_all() -> String {
+    let mut stdin = io::stdin();
+    let mut text = String::new();
+
+    stdin.read_to_string(&mut text).expect("Failed to read stdio");
+
+    return text;
 }
