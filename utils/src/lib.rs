@@ -1,6 +1,6 @@
 use std::io::{self, BufRead, Read};
 
-pub fn parse_two_lists() -> (Vec<i32>, Vec<i32>) {
+pub fn read_two_lists() -> (Vec<i32>, Vec<i32>) {
     let (mut list1, mut list2) = (vec![], vec![]);
 
     let stdin = io::stdin();
@@ -18,7 +18,7 @@ pub fn parse_two_lists() -> (Vec<i32>, Vec<i32>) {
     return (list1, list2);
 }
 
-pub fn parse_int_lists() -> Vec<Vec<i32>> {
+pub fn read_int_lists() -> Vec<Vec<i32>> {
     let stdin = io::stdin();
     let lines = stdin.lock().lines().map(|line| line.unwrap());
 
@@ -32,10 +32,23 @@ pub fn parse_int_lists() -> Vec<Vec<i32>> {
 }
 
 pub fn read_all() -> String {
-    let mut stdin = io::stdin();
+    let stdin = io::stdin();
     let mut text = String::new();
 
-    stdin.read_to_string(&mut text).expect("Failed to read stdio");
+    stdin.lock().read_to_string(&mut text)
+        .expect("Failed to read stdio");
 
     return text;
+}
+
+pub fn read_byte_matrix() -> Vec<Vec<u8>> {
+    let stdin = io::stdin();
+    let lines = stdin.lock().lines()
+        .map(|line| line.expect("Failed to read line"));
+
+    let matrix = lines
+        .map(String::into_bytes)
+        .collect();
+
+    return matrix;
 }

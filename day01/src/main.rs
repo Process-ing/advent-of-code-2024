@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use utils::parse_two_lists;
+use utils::read_two_lists;
 
 fn distance(mut list1: Vec<i32>, mut list2: Vec<i32>) -> i32 {
   list1.sort();
@@ -36,7 +36,7 @@ fn similarity_score(list1: Vec<i32>, list2: Vec<i32>) -> i32 {
 }
 
 fn main() {
-  let (list1, list2) = parse_two_lists();
+  let (list1, list2) = read_two_lists();
   let dist = distance(list1.clone(), list2.clone());
   let score = similarity_score(list1, list2);
 
