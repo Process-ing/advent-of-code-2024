@@ -1,4 +1,4 @@
-use utils::parse_int_lists;
+use utils::read_int_lists;
 
 fn tail_skip(vec: &[i32], index: usize) -> Vec<i32> {
   let mut tail = vec![];
@@ -45,7 +45,7 @@ fn safe_count(reports: &[Vec<i32>], tolerance: bool) -> usize {
 }
 
 fn main() {
-  let reports = parse_int_lists();
+  let reports = read_int_lists();
 
   let safe_reports = safe_count(&reports, false);
   let dampened_safe_reports = safe_count(&reports, true);
