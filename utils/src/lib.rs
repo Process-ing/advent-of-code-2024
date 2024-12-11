@@ -52,3 +52,9 @@ pub fn read_byte_matrix() -> Vec<Vec<u8>> {
 
     return matrix;
 }
+
+pub fn read_usize_list() -> Vec<usize> {
+    return read_all().split_whitespace()
+        .map(|w| w.parse().unwrap())
+        .collect();
+}
